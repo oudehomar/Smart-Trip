@@ -1,0 +1,100 @@
+<div role="navigation" class="left">
+    <ul>
+        <li><a>Set Rating</a>
+            <ul class="dropdown">
+                <li>
+                    <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="rating" name="Id">
+                     <option [ngValue]="ratingItem" *ngFor="let ratingItem of ratingList">  {{ratingItem}}</option>
+                    </select>
+                </li>
+            </ul>
+        </li>
+        <br><br><br>
+        <li><a>Set Type</a>
+            <ul class="dropdown">
+                <li>
+                    <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="type" name="Id">
+                     <option [ngValue]="typeName" *ngFor="let typeName of typeList"> {{typeName}} </option>
+                    </select>
+                </li>
+            </ul>
+        </li>
+        <br><br><br>
+        <li><a>Set City</a>
+            <ul class="dropdown">
+                <li>
+                    <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="city" name="Id">
+                      <option [ngValue]="cityName" *ngFor="let cityName of cityList">{{cityName}}</option>
+                     </select>
+                </li>
+            </ul>
+        </li>
+        <br><br><br>
+        <li>
+            <button (click)="controller()">Filter</button>
+        </li>
+    </ul>
+</div>
+
+
+<section class="right">
+    <div *ngFor="let rest of restaurant$" class="card" style="display: inline-block; width: 18rem; height: 100%;">
+        <img src="./assets/img/restaurants.png" class="card-img-top" alt="{{rest.name}}" title="{{rest.name}}">
+        <div class="card-body">
+            <h2 class="card-title">{{rest.name}}</h2>
+            <p class="card-text" style="min-height: 3rem;">{{rest.description}}</p>
+            <p class="card-text">Type: {{rest.type}}</p>
+            <p class="card-text">City: {{rest.city}}</p>
+            <p class="card-text" *ngIf="rest.rating<1" title="{{rest.rating}}">
+                Rating:
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="rest.rating>1 && rest.rating<2" title="{{rest.rating}}">
+                Rating:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="rest.rating>2 && rest.rating<3" title="{{rest.rating}}">
+                Rating:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="rest.rating>3 && rest.rating<4" title="{{rest.rating}}">
+                Rating:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="rest.rating>4 &&rest.rating<5" title="{{rest.rating}}">
+                Rating:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="rest.rating==5" title="{{rest.rating}}">
+                Rating:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </p>
+            <p class="card-text">Rating: {{rest.rating}}</p>
+            <a class="btn btn-primary" [routerLink]="['/smart-trip/restaurants', rest.id]">Click for more Details</a>
+        </div>
+    </div>
+</section>

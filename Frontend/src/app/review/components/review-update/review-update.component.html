@@ -1,0 +1,42 @@
+<div class="container-fluid mb-5" style="padding-top: 2%; width: 95%;">
+    <button class=" btn btn-warning" [routerLink]="['../..']" style="background-color: rgb(66, 133, 244) !important;border-color: transparent;" title="Zurück zu {{restaurant.name}}">Zurück zu {{restaurant.name}}</button>
+    <h2>Deine Meinung zu {{restaurant.name}} ist uns wichtig!</h2>
+    <p style="padding-left: 2px;">Vielen Dank, dass Du dein Feedback mit uns teilst!</p>
+    <div class="card">
+        <div class="card-body">
+            <form #reviewForm="ngForm">
+                <div class="form-group">
+                    <label>Dein Name </label><br />
+                    <input type="text" class="form-controll" name="author" [(ngModel)]="author">
+                </div>
+                <p class="card-text"> Bitte bewerte wie wohl Du Dich bezüglich der folgenden Attribute gefühlt hast!</p>
+                <label>Sauberkeit </label><br />
+                <ngb-rating max="5" [(rate)]="cleanness" name="cleanness" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{cleanness}} / 5 </span><br />
+                <hr>
+                <label>Freundlichkeit </label><br />
+                <ngb-rating max="5" [(rate)]="friendliness" name="friendliness" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{friendliness}} / 5 </span><br />
+                <hr>
+                <label>Qualität Verpflegungsangebot </label><br />
+                <ngb-rating max="5" [(rate)]="foodQuality" name="foodQuality" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{foodQuality}} / 5 </span><br />
+                <hr>
+                <label>Ambiente und Einrichtung </label><br />
+                <ngb-rating max="5" [(rate)]="ambience" name="ambience" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{ambience}} / 5 </span><br />
+                <hr>
+                <label>Familienfreundlichkeit </label><br />
+                <ngb-rating max="5" [(rate)]="familyFriendly" name="familyFriendly" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{familyFriendly}} / 5 </span><br />
+                <hr>
+                <div class="form-group">
+                    <label>Schreibe einen Kommentar!</label><br />
+                    <textarea cols="50" rows="4" type="text" class="form-controll" name="comment" [(ngModel)]="comment">
+                     </textarea>
+                </div>
+            </form>
+            <a (click)="handelSubmit()" [routerLink]="[]" class="btn btn-warning" title="Bewertung aktualisieren">Bewertung aktualisieren</a>
+        </div>
+    </div>
+</div>

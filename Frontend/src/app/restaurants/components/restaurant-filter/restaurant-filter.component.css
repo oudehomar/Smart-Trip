@@ -1,0 +1,103 @@
+.checked {
+    color: orange;
+}
+
+.card {
+    margin: 6px;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    font-family: monospace;
+}
+
+ul {
+    background: rgb(12, 0, 184);
+    list-style: none;
+    padding-left: 0;
+    width: 150px;
+    margin: -39px;
+    position: fixed;
+}
+
+ul .dropdown {
+    width: 152;
+}
+
+li {
+    color: #fff;
+    background: rgb(12, 0, 184);
+    display: block;
+    float: none;
+    padding: 1rem;
+    position: initial;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    z-index: 1;
+    position: static;
+    left: 50px;
+}
+
+li a {
+    color: #fff;
+}
+
+ul li ul {
+    background: rgb(12, 0, 184);
+    visibility: hidden;
+    opacity: 0;
+    min-width: 2rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+ul li:hover>ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
+}
+
+.left {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    width: 11%;
+    height: auto;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.right {
+    background-color: #FFFFFF;
+    float: right;
+    width: 70%;
+    margin-top: 40px;
+}
+
+img {
+    height: 200px;
+}
+
+.right div {
+    display: inline-block;
+}
+
+div ul li input {
+    position: static;
+    margin-left: 0;
+    width: 80%;
+}

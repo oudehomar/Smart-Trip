@@ -1,0 +1,41 @@
+<div class="wrapper" id="middle">
+    <div class="card-body text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Kontakt</th>
+                    <th scope="col">Sterne</th>
+                    <th scope="col">Frühstück</th>
+                    <th scope="col">Free WiFi</th>
+                    <th scope="col">Park- <br /> möglichkeiten</th>
+                    <th scope="col">Bewertung</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hotel of listOfHotels">
+                    <td>{{hotel.name}}</td>
+                    <td>{{hotel.address}}</td>
+                    <td>{{hotel.email}}</td>
+                    <!-- <td>{{hotel.stars}}</td> -->
+                    <td (hotel)=setStars($event)>{{hotel.stars}}</td>
+
+                    <td *ngIf="hotel.breakfast" class="true"> &#x2714; </td>
+                    <td *ngIf="!hotel.breakfast" class="false"> &#x2718; </td>
+
+                    <td *ngIf="hotel.wifi" class="true"> &#x2714; </td>
+                    <td *ngIf="!hotel.wifi" class="false"> &#x2718; </td>
+
+                    <td *ngIf="hotel.parking" class="true"> &#x2714; </td>
+                    <td *ngIf="!hotel.parking" class="false"> &#x2718; </td>
+
+                    <td>{{hotel.rating}}</td>
+
+                </tr>
+                <tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

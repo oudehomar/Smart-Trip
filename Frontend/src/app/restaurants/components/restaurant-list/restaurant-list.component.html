@@ -1,0 +1,137 @@
+<br>
+<section class="right" style="padding-left: 18%;">
+    <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input #search type="text" class="form-control" placeholder="Suche" (keyup)="fetchPerName(search.value)">
+    </div>
+</section>
+
+<div class="btn-group" style="margin-left:76%;">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 4px; width: 126px; padding-left: 10px; color: black; font-size: 120%; font-family: 'Comic Sans MS', 'Comic Sans', cursive; margin-left: 30%; margin-top: 0px; background-color: rgb(66, 133, 244) !important;height: 38px;font-size: 14px;"
+        title="Sortieren">
+    Sortieren
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dLabel">
+        <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByRatingAsc()">Sort Rating aufsteigend</button>
+        <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByRatingDesc()">Sort Rating absteigend</button>
+    </div>
+</div>
+
+<section class="right" style="padding-top: 0%; width:74%">
+    <div class="tryingdiv">
+        <div *ngIf="isLoading" class="spinner" style="margin-left: 320px;">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <div *ngFor="let rest of restaurant$" class="card" style="width: 18rem;">
+            <img src="./assets/img/restaurants.png" class="card-img-top" alt="{{rest.name}}" title="{{rest.name}}">
+            <div class="card-body">
+                <h2 class="card-title">{{rest.name}}</h2>
+                <p class="card-text" style="min-height: 3rem;">{{rest.description}}</p>
+                <p class="card-text" *ngIf="rest.type=='DeutscheKueche'">Typ: Deutsche Küche</p>
+                <p class="card-text" *ngIf="rest.type!='DeutscheKueche'">Typ: {{rest.type}}</p>
+                <p class="card-text">Stadt: {{rest.city}}</p>
+                <p class="card-text" *ngIf="rest.rating<1" title="{{rest.rating}}">
+                    Bewertung:
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </p>
+                <p class="card-text" *ngIf="rest.rating>=1 && rest.rating<2" title="{{rest.rating}}">
+                    Bewertung:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </p>
+                <p class="card-text " *ngIf="rest.rating>=2 && rest.rating<3" title="{{rest.rating}}">
+                    Bewertung:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </p>
+                <p class="card-text" *ngIf="rest.rating>=3 && rest.rating<4" title="{{rest.rating}}">
+                    Bewertung:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </p>
+                <p class="card-text" *ngIf="rest.rating>=4 &&rest.rating<5" title="{{rest.rating}}">
+                    Bewertung:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </p>
+
+                <p class="card-text" *ngIf="rest.rating==5" title="{{rest.rating}}">
+                    Bewertung:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+                <a class="btn btn-primary" [routerLink]="['/smart-trip/restaurants', rest.id]" style="color: black; font-family: 'Comic Sans MS', 'Comic Sans', cursive; font-size: 110%; margin-left: 13%;" title="Weitere Informationen">Weitere Informationen</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div role="navigation" class="left" style="padding-top: 2px;">
+    <ul style="padding-top: 20px; width: 173px;">
+        <p class="text-center " style='padding-left: 0;margin-top: 0%;color: black;font-size: 120%;font-family: "Comic Sans MS", "Comic Sans", cursive;'> Filter </p>
+        <hr class="hrStyle">
+        <li>
+            <p class="text-center" style='padding-left: 0;margin-top: 0%;color: black;font-size: 120%;font-family: "Comic Sans MS", "Comic Sans", cursive;'>
+                Kundenrezension:</p>
+            <ul class="dropdown">
+                <li style="width: 116%;">
+                    <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="rating" name="Id">
+                  <option [ngValue]="ratingItem" *ngFor="let ratingItem of ratingList"> {{ratingItem}} </option>
+                   </select>
+                </li>
+            </ul>
+        </li>
+        <br><br><br>
+        <li>
+            <p class="text-center" style='padding-left: 0;margin-top: 0%;color: black;font-size: 120%;font-family: "Comic Sans MS", "Comic Sans", cursive;'>
+                Küche:</p>
+            <ul class="dropdown">
+                <li style="width: 116%;">
+                    <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="type" name="Id">
+                       <option [ngValue]="typeName" *ngFor="let typeName of typeList">  {{typeName}} </option>
+                     </select>
+                </li>
+            </ul>
+        </li>
+        <br><br><br>
+        <li>
+            <p class="text-center" style='padding-left: 0;margin-top: 0%;color: black;font-size: 120%;font-family: "Comic Sans MS", "Comic Sans", cursive;'>
+                Stadt:</p>
+            <ul class="dropdown">
+                <li style="width: 116%;">
+                    <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="city" name="Id">
+                      <option [ngValue]="cityName" *ngFor="let cityName of cityList">{{cityName}} </option>
+                    </select>
+                </li>
+            </ul>
+        </li>
+        <br><br><br>
+        <li>
+            <button style="padding: 16px; width: 98px; padding-left: 8px;color: black;font-size: 115%;font-family: 'Comic Sans MS', 'Comic Sans', cursive;margin-left: 23px;margin-top: 3px;" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                (click)="controller()" title="Filtern">  Filtern </button>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,263 @@
+.right {
+    background-color: #FFFFFF;
+    float: right;
+}
+
+.right div {
+    display: inline-block;
+    margin: 2px;
+}
+
+.checked {
+    color: orange;
+}
+
+.card {
+    margin: 6px;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    font-family: monospace;
+}
+
+ul {
+    background: #97E3F1;
+    list-style: none;
+    padding-left: 0;
+    width: 150px;
+    margin: -39px;
+}
+
+ul .dropdown {
+    width: 185;
+}
+
+li {
+    color: #fff;
+    background: #97E3F1;
+    display: block;
+    float: none;
+    padding: 1rem;
+    position: initial;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    z-index: 1;
+    position: static;
+    left: 50px;
+}
+
+li a {
+    color: #fff;
+}
+
+li:hover {
+    background: rgb(57, 105, 209);
+    cursor: pointer;
+}
+
+ul li ul {
+    background: #97E3F1;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 2rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+ul li:hover>ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
+}
+
+.left {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: auto;
+    padding: 40px;
+}
+
+.right {
+    background-color: #FFFFFF;
+    float: right;
+    width: 70%;
+}
+
+img {
+    height: 200px;
+}
+
+.right div {
+    display: inline-block;
+}
+
+div ul li input {
+    position: static;
+    margin-left: 0;
+    width: 80%;
+}
+
+.spinner {
+    margin: 100px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.spinner>div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+    0%,
+    40%,
+    100% {
+        -webkit-transform: scaleY(0.4)
+    }
+    20% {
+        -webkit-transform: scaleY(1.0)
+    }
+}
+
+@keyframes sk-stretchdelay {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }
+    20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+
+/* button */
+
+.center {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+.btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgb(60, 149, 233);
+    outline: none;
+    transition: 1s ease-in-out;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+}
+
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: #4F95DA;
+}
+
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btn span {
+    color: suchen;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.main {
+    width: 25%;
+    margin: 50px auto;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+hr.hrStyle {
+    height: 30px;
+    border-style: solid;
+    border-color: rgb(57, 105, 209);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+hr.hrStyle:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: rgb(57, 105, 209);
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}

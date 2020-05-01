@@ -1,0 +1,76 @@
+<div class="wrapper">
+
+
+    <div class="card" style="width: 99%;">
+        <div class="card-body">
+            <h5 class="card-title">{{hotel.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Bitte tragen Sie die zu Ändernden angaben ein
+            </h6>
+            <p>
+                <label for="hotelName">Name Hotel</label><br />
+                <input id="hotelName" type="text" placeholder="{{hotel.name}}" [(ngModel)]="hotel.name">
+            </p>
+            <p>
+                <label for="hotelTelephone">Telefon</label><br />
+                <input id="hotelTelephone" type="text" placeholder="{{hotel.telephone}}" [(ngModel)]="hotel.telephone">
+            </p>
+            <p>
+                <label for="hotelWebsite">Webseite</label><br />
+                <input id="hotelWebsite" type="text" placeholder="{{hotel.website}}" [(ngModel)]="hotel.website">
+            </p>
+            <p>
+                <label for="hotelWebsite">Beschreibung</label><br />
+                <textarea type="text" placeholder="{{hotel.description}}"
+                    [(ngModel)]="hotel.description">    </textarea>
+            </p>
+
+            <p>
+                <label for="hotelWebsite">Sterne</label><br />
+                <input type="number" placeholder="{{hotel.stars}}" [(ngModel)]="hotel.stars">
+            </p>
+
+
+            <p>
+                <label>Preis</label>
+                <input class="slider" name="price" id="price" type="range" min="10" max="120" value="hotel.price"
+                    [(ngModel)]="hotel.price"> {{hotel.price}} Euro
+            </p>
+<div class="row">
+<div class="checkBHUpdate">
+    <label for="breakfast">Fühstück inklusive</label>
+    <input id="breakfast" type="checkbox" name="breakfast" [(ngModel)]="hotel.breakfast">
+</div>
+<div class="checkBHUpdate">
+    <label for="freeWifi">Free Wifi</label>
+    <input id="freeWifi" type="checkbox" name="freeWifi" [(ngModel)]="hotel.wifi">
+</div>
+
+<div class="checkBHUpdate">
+    <label for="parking">Gute Parkmöglichkeiten</label>
+    <input id="parking" type="checkbox" name="parking" [(ngModel)]="hotel.parking">
+</div>
+<div class="checkBHUpdate">
+    <label for="restaurant">Internes Restaurant</label>
+    <input id="restaurant" type="checkbox" name="restaurant" [(ngModel)]="hotel.restaurant">
+</div>
+<div class="checkBHUpdate">
+    <label for="swimmingPool">Hauseigner Swimming Pool</label>
+    <input id="swimmingPool" type="checkbox" name="swimmingPool" [(ngModel)]="hotel.swimmingPool">
+</div>
+
+
+
+</div>
+<a (click)="updateHotel()" class="btn btn-warning">Änderungen übernehmen</a>
+{{hotel | json}}
+         
+        </div>
+    </div>
+
+
+
+   
+
+
+
+</div>

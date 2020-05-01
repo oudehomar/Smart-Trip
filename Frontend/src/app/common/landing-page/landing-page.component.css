@@ -1,0 +1,103 @@
+a:hover {
+    text-decoration: none !important;
+    text-shadow: 1px 1px 3px 1px #D5D8DC;
+}
+
+.circle {
+    border-radius: 50%;
+    /* background: #58ACFA; */
+    background: rgb(88, 172, 250);
+    background: linear-gradient(127deg, rgba(88, 172, 250, 1) 0%, rgba(143, 230, 242, 1) 35%, rgba(0, 0, 0, 1) 100%);
+    text-align: center;
+    padding-top: 7%;
+    float: initial;
+    height: 200px;
+    width: 200px;
+    margin-left: 110px;
+    margin-top: 5%;
+    color: rgb(10, 10, 10);
+    text-shadow: 1px 1px 3px #D5D8DC;
+    box-shadow: 3px 3px black;
+    font-weight: bold;
+    transition: transform .2s;
+    /* Animation */
+}
+
+.circle:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px black;
+    background-color: whitesmoke;
+    text-shadow: 1px 1px 3px 1px #D5D8DC !important;
+}
+
+.circle:a :active {
+    transform: scale(1.1);
+    box-shadow: 5px 5px black;
+    background-color: whitesmoke;
+}
+
+.heading-lp {
+    font-size: x-large;
+    text-align: center;
+    display: block;
+    margin-top: 4%;
+    text-shadow: 3px 3px whitesmoke;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.icons {
+    margin-top: 0px;
+    margin-bottom: 5%;
+    max-height: 125px;
+}
+
+img {
+    max-width: 150px;
+    height: auto;
+}
+
+.logo {
+    font-size: 120%;
+    text-shadow: 2px 2px black;
+    font-style: italic;
+    font-family: Trattatello, fantasy;
+}
+
+.subtilte-lp {
+    margin: 5%;
+    padding: 0%;
+}
+
+a#link-on-div {
+    display: block;
+    width: 130px;
+    height: 40px;
+    padding-right: 30%;
+    transition: transform .2s;
+    /* Animation */
+}
+
+.wrapper-inside {
+    padding-top: 4%;
+}
+
+.h1Style {
+    text-align: center;
+    font-size: 120%;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-weight: bold;
+    color: rgb(73, 71, 71);
+    margin-left: -7%;
+}
+
+.pStyle {
+    text-align: center;
+    margin: 2%;
+    margin-left: -7%;
+    margin-top: 6%;
+    font-size: 160%;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-weight: bolder;
+    color: rgb(73, 71, 71);
+}

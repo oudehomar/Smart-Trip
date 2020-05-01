@@ -1,0 +1,20 @@
+.buttonBack {
+    padding: 1%;
+    background-color: rgb(66, 133, 244);
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    border-radius: 15px 0px;
+}
+
+ngb-rating {
+    float: right;
+    font-size: 200%;
+}
+
+label {
+    font-weight: bold;
+    font-size: large;
+}
+
+span {
+    float: right;
+}

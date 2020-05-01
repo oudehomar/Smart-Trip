@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <h2>Verwalten Sie die eingegangenen Bewertungen:</h2>
+    <br />
+    <div class="row">
+        <div *ngFor="let review of reviews" class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">Von: {{review.author}}</h5>
+                <hr />
+                <!-- <h6 class="card-subtitle mb-3 text-muted">Gesamtbewertung: {{review.averageRating}}</h6> -->
+
+
+                <p>Sauberkeit: {{review.cleanness}}
+                    <ngb-rating [(rate)]="review.cleanness" [readonly]="true" max="5"></ngb-rating>
+                </p>
+                <p>Freundlichkeit: {{review.friendliness}}
+                    <ngb-rating [(rate)]="review.friendliness" [readonly]="true" max="5"></ngb-rating>
+                </p>
+                <p>Qualität Verpflegung: {{review.foodQuality}}
+                    <ngb-rating [(rate)]="review.foodQuality" [readonly]="true" max="5"></ngb-rating>
+                </p>
+                <p>Ambiente & Einrichtung: {{review.ambience}}
+                    <ngb-rating [(rate)]="review.ambience" [readonly]="true" max="5"></ngb-rating>
+                </p>
+                <p>Familienfreundlichkeit: {{review.familyFriendly}}
+                    <ngb-rating [(rate)]="review.familyFriendly" [readonly]="true" max="5"></ngb-rating>
+                </p>
+                <p>Abgegebener Kommentar: </p>
+                <hr />
+                <p><span class="comments">{{review.comment}}</span></p>
+                <hr />
+
+
+                <a (click)="deleteReview(review.id)" class="btn btn-danger">Bewertung löschen</a>
+
+            </div>
+        </div>
+    </div>
+</div>

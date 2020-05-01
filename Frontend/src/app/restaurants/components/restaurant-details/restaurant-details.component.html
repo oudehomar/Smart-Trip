@@ -1,0 +1,184 @@
+<section class="newSection" *ngIf="restaurant">
+    <div class="card mb-3" style="">
+        <div class="row no-gutters">
+            <div class="col-md-4" style="padding: 4px;">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="A" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="B"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="C"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./assets/img/restaurants.png" class="card-img-top" alt="{{restaurant.name}}" title="{{restaurant.name}}" style="border-radius: 10px 10px;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./assets/img/restaurants.png" class="card-img-top" alt="{{restaurant.name}}" title="{{restaurant.name}}" style="border-radius: 10px 10px;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./assets/img/restaurants.png" class="card-img-top" alt="{{restaurant.name}}" title="{{restaurant.name}}" style="border-radius: 10px 10px;">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="divAfterImg">
+                    <p class="card-text" *ngIf="restaurant.rating <1" title="{{restaurant.rating}}">
+                        Rating:
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span> ({{reviews.length}}) </span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.rating>=1 && restaurant.rating<2" title="{{restaurant.rating}}">
+                        Rating:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span> ({{reviews.length}}) </span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.rating>=2 && restaurant.rating<3" title="{{restaurant.rating}}">
+                        Rating:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span> ({{reviews.length}}) </span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.rating>=3 && restaurant.rating<4" title="{{restaurant.rating}}">
+                        Rating:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span> ({{reviews.length}})</span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.rating>=4 &&restaurant.rating<5" title="{{restaurant.rating}}">
+                        Rating:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span> ({{reviews.length}}) </span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.rating==5" title="{{restaurant.rating}}">
+                        Rating:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span> ({{reviews.length}}) </span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.parking===true">Parkmöglichkeit: <span class="checkTrue" title="Ja">&#10003; </span> </p>
+                    <p class="card-text" *ngIf="restaurant.parking===false">Parkmöglichkeit: <span class="checkFalse" title="Nein"> &#x2717; </span> </p>
+                    <p class="card-text" *ngIf="restaurant.veganFriendly===true">Vegan: <span class="checkTrue" title="Ja">&#10003; </span> </p>
+                    <p class="card-text" *ngIf="restaurant.veganFriendly===false">Vegan: <span class="checkFalse" title="Nein">&#x2717; </span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.familyFriendly===true">Family Friendly: <span class="checkTrue" title="Ja">&#10003; </span>
+                    </p>
+                    <p class="card-text" *ngIf="restaurant.familyFriendly===false">Family Friendly: <span class="checkFalse" title="Nein">&#x2717; </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title" style="  font-family: 'Comic Sans MS', 'Comic Sans', cursive;font-weight:bold; font-size: revert;">{{restaurant.name}}</h2>
+                    <p class="card-text">{{restaurant.description}}</p>
+                    <p class="card-text" *ngIf="restaurant.type=='DeutscheKueche'">Typ: Deutsche Küche</p>
+                    <p class="card-text" *ngIf="restaurant.type!='DeutscheKueche'">Typ: {{restaurant.type}}</p>
+                    <p class="card-text">Stadt : {{restaurant.city}}</p>
+                    <p class="card-text">Adresse: {{restaurant.address}}</p>
+                    <p class="card-text">Telefon: {{restaurant.telephone}}</p>
+                    <p class="card-text">Webseite: <a>{{restaurant.website}}</a></p>
+                    <p class="card-text">Plätze: {{restaurant.seats}}</p>
+                    <p class="card-text">Öffnungszeiten: {{restaurant.openTime}}</p>
+                    <button class="buttonBack" [routerLink]="['../']" title="Zurück zur Liste">Zurück zur Liste</button>
+                    <button class="butRev" type="submit" [routerLink]="['add-review']" style="float: right; margin-top: 4%; background-color: orange;" title="Bewerten">Bewerten</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="reviewList" *ngIf="restaurant">
+    <h2 class="commentH h2ToHover" (click)="changeShowComments()" title="Kommentare Anzeigen">Kommentare Anzeigen</h2>
+    <div class="card" style="width: 39%;" *ngIf="showComments">
+        <div class="card-body" *ngFor="let review of reviews">
+            <h3 class="card-title" style="color:black;   font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+                {{review.author}} schrieb: </h3>
+            <h4 class="card-text" style="color:black; text-align: center;">{{review.comment}}</h4>
+            <p class="card-text" *ngIf="review.averageRating <1" title="{{review.averageRating}}" style="text-align: center;   font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+                Bewertung:
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="review.averageRating>=1 && review.averageRating<2" title="{{review.averageRating}}" style="text-align: center;   font-family: 'Comic Sans MS', 'Comic Sans', cursive; ">
+                Bewertung:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="review.averageRating>=2 && review.averageRating<3" title="{{review.averageRating}}" style="text-align: center;   font-family: 'Comic Sans MS', 'Comic Sans', cursive; ">
+                Bewertung:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="review.averageRating>=3 && review.averageRating<4" title="{{review.averageRating}}" style="text-align: center;   font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+                Bewertung:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="review.averageRating>=4 &&review.averageRating<5" title="{{review.averageRating}}" style="text-align: center;   font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+                Bewertung:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </p>
+            <p class="card-text" *ngIf="review.averageRating==5" title="{{review.averageRating}}" style="text-align: center;  font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+                Bewertung:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </p>
+            <button class="butDelete" title="Löschen" (click)="deleteThisReview(review.id)">Löschen</button>
+            <button class="butUpdate" title="Update" [routerLink]="['update-review/',review.id]"> Aktualisieren</button>
+            <br>
+            <hr>
+        </div>
+    </div>
+
+</div>
+<br>
+<div *ngIf="!restaurant" style="margin: 20% 45%; width: 200px;">
+    <h2>Nichts Gefunden!</h2>
+</div>

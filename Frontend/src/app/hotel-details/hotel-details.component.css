@@ -1,0 +1,56 @@
+#additional-padding {
+    padding: 5%;
+}
+
+#author {
+    margin-left: 70%;
+    font-size: small;
+}
+
+#back {
+    margin-left: 7%;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table.details {
+    margin: 3%;
+    display: inline;
+}
+
+table.table tr {
+    text-align: left;
+}
+
+table.features {
+    margin-top: 3%;
+    padding: 2%;
+    font-size: large;
+    border: 1px solid rgb(100, 95, 95);
+    border-collapse: separate;
+}
+
+th {
+    font-weight: bold;
+}
+
+tr,
+td {
+    margin: 5%;
+    padding: 5%;
+    width: 150px;
+    text-align: left;
+}
+
+.true {
+    background-color: lightgreen;
+    font-size: large;
+}
+
+.false {
+    background-color: rgb(238, 193, 125);
+    font-size: large;
+}

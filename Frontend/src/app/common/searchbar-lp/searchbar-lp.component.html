@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div role="navigation" class="left" style="padding-top: 2px;">
+        <div class="container">
+            <div class="row" style="margin-top: 38%;">
+                <div class="col" class="searchbar-column" style="padding-left: 4%;margin-left: 4%;">
+                    <input type="text" placeholder="Stadtnamen eingeben" id="city" name="city" class="form-control" [(ngModel)]="filterObject.city" style="float:left;padding-left: 0%;">
+                </div>
+                <div class="col" class="dropdown-column" style="padding-left: 4%;margin-left: 4%;">
+                    <select class="dropdown" [(ngModel)]="selectedOption" name="option-menu">
+                      <option *ngFor="let option of optionsHotel" name="option" [value]="option">{{option}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" class="slider-column" *ngIf="selectedOption==='Preis'">
+                    <h3 style="margin-left:-14%">Maximaler Preis: {{filterObject.maxPrice}} €</h3>
+                    <input class="slider" name="price" id="price" type="range" min="10" max="100" value="30" (input)="changePrice($event.target.value)">
+                </div>
+                <div class="col" class="slider-column" *ngIf="selectedOption==='Sterne'">
+                    <h3>Minimale Sterne: {{filterObject.stars}}</h3>
+                    <input class="slider" name="stars" id="stars" type="range" min="1" max="5" value="2" (input)="changeStars($event.target.value)">
+                </div>
+                <div class="col" class="checkbox-column" *ngIf="selectedOption !=='Alle anzeigen'">
+                    <app-checkboxes [filterObject]="filterObject" (fiterObjectTransporter)="setBooleansOfFiterObject($event)">
+                    </app-checkboxes>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="center">
+                <button class="btn" (click)="getHotelListWithFilterObject(this.filterObject)">
+                   <svg width="10 0px" height="60px" viewBox="0 0 180 60" class="border" style="height: 62px;width: 95px;">
+                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                      <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                     <span>SUCHEN</span>
+                 </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <app-hotel-list [filteredHotelList]="filteredHotelList"></app-hotel-list>
+
+</body>
+
+</html>

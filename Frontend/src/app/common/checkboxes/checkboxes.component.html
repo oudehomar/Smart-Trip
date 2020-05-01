@@ -1,0 +1,53 @@
+<h3><b>Was ist Dir noch wichtig?</b></h3>
+<br />
+<form action="#">
+
+ 
+       
+
+        <p>
+          <input type="checkbox" name="freeBreakfast" id="freeBreakfast" [checked]="filterObject.hasFreeBreakfast"
+            (click)="sendFreeBreakfast()" />
+          <label for="freeBreakfast">Frühstück inklusive</label>
+        </p>
+      
+      
+        <p>
+          <input type="checkbox" name="freeParking" id="freeParking" [checked]="filterObject.hasFreeParking"
+            (click)="sendFreeParking()" />
+          <label for="freeParking">Gute Parkmöglichkeiten</label>
+        </p>
+      
+        <p>
+          <input type="checkbox" name="freeWifi" id="freeWifi" [checked]="filterObject.hasFreeWifi"
+            (click)="sendFreeWifi()" />
+          <label for="freeWifi">FreeWifi</label>
+        </p>
+
+
+
+
+
+
+
+       
+        <p>
+          <input type="checkbox" name="restaurant" id="restaurant" [checked]="filterObject.hasRestaurant"
+            (click)="sendRestaurant()" />
+          <label for="restaurant">Restaurant</label>
+        </p>
+      
+        <p>
+          <input type="checkbox" name="swimmingPool" id="swimmingPool" [checked]="filterObject.hasSwimmingPool"
+            (click)="sendSwimmingPool()" />
+          <label for="swimmingPool">Swimming Pool</label>
+        </p>
+
+
+
+
+ 
+
+
+
+</form>

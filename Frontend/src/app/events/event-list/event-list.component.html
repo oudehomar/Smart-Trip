@@ -1,0 +1,80 @@
+<br><br>
+<div class="btn-group" style="margin-left:80%;">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 4px; width: 126px; padding-left: 10px; color: black; font-size: 120%; font-family: 'Comic Sans MS', 'Comic Sans', cursive; margin-top: 0px; background-color: rgb(66, 133, 244) !important;height: 38px;font-size: 14px;"
+        title="Sortieren">
+    Sortieren
+  </button>
+    <div class="dropdown-menu" aria-labelledby="dLabel">
+
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;width: 100%;background-color: rgb(60, 149, 233) !important;">
+        Sortiere alle Events
+      </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" (click)="sortingAllEvents('All Events')">All events</button>
+            <button class="dropdown-item" type="button" (click)="sortingAllEvents('Price: Low to High')">Price: Low to
+          High</button>
+            <button class="dropdown-item" type="button" (click)="sortingAllEvents('Price: High to Low')">Price: High to
+          Low</button>
+            <button class="dropdown-item" type="button" (click)="sortingAllEvents('Capacity: Low to High')">Capacity: Low to
+          High</button>
+            <button class="dropdown-item" type="button" (click)="sortingAllEvents('Capacity: High to Low')">Capacity: High to
+          Low</button>
+        </div>
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;background-color: rgb(60, 149, 233) !important;">
+      Sortiere Alle in Stadt
+    </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" (click)="sortingEventsInCity('Price: Low to High')">Price: Low to
+        High</button>
+            <button class="dropdown-item" type="button" (click)="sortingEventsInCity('Price: High to Low')">Price: High to
+        Low</button>
+            <button class="dropdown-item" type="button" (click)="sortingEventsInCity('Capacity: Low to High')">Capacity: Low
+        to High</button>
+            <button class="dropdown-item" type="button" (click)="sortingEventsInCity('Capacity: High to Low')">Capacity: High
+        to Low</button>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="filter">
+        <p class="text-center " style='padding-left: 0;margin-top: 0%;color: black;font-size: 120%;font-family: "Comic Sans MS", "Comic Sans", cursive;'>
+            Filter
+        </p>
+        <hr class="hrStyle">
+        <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input #city type="text" class="form-control" placeholder="Stadt eingeben">
+            <button class=" btn btn-primary" (click)="searchByCity(city.value)" style="color:black;margin-left: 19px;margin-left: 20px;font-family: 'Comic Sans MS', 'Comic Sans', cursive; width: 86%;height: 52px;margin-top:20px;" title="Suchen">Suchen</button>
+        </div>
+
+        <ng5-slider class="priceBar" [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+        <button class=" btn btn-primary" (click)="updatePrice()" style="color:black; padding: 16px; width: 86%; padding-left: 10px;color: black;font-size: 107%;font-family: 'Comic Sans MS', 'Comic Sans', cursive;margin-left: 19px;margin-top: 16px;" title="Aktualisieren">Aktualisieren</button>
+
+        <div class="dropdownTypesOfEvent">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black; padding: 17px; width: 107%; padding-left: 11px;color: black;font-size: 115%;font-family: 'Comic Sans MS', 'Comic Sans', cursive;margin-left: -1px;margin-top: 1px;"
+                title="Typ von Event">
+        Typ von Event
+      </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button" (click)="showAllTypes(city.value)">Alle</button>
+                <button class="dropdown-item" type="button" (click)="showTypes(city.value, 'Concert')">Konzert</button>
+                <button class="dropdown-item" type="button" (click)="showTypes(city.value, 'MusicFestival')">Musik
+          Festival</button>
+                <button class="dropdown-item" type="button" (click)="showTypes(city.value, 'Theater')">Theater</button>
+                <button class="dropdown-item" type="button" (click)="showTypes(city.value, 'Exhibition')">Messe</button>
+                <button class="dropdown-item" type="button" (click)="showTypes(city.value, 'OtherEvent')"> Andere Events</button>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="right" style="padding-top: 0%;">
+    <div class="right">
+        <section class="cardDesign" style="  margin-left:-50%;  ">
+            <div *ngFor="let event of listOfEvents">
+                <app-card-format [event]="event" style="margin: 0px;"></app-card-format>
+            </div>
+        </section>
+    </div>
+</section>

@@ -1,0 +1,131 @@
+<div class="wrapper" style="margin-top: 0%;">
+
+
+
+    <button type="button" [routerLink]="['/smart-trip/search']" class="btn btn-dark" style="float:right">Zurück</button>
+    <h1 style="font-weight:bold;font-size:154%;margin-left:3%;color: black; font-family: 'Comic Sans MS', 'Comic Sans', cursive;">{{hotel.name}}</h1>
+
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <img src="./assets/img/hotels.png" class="card-img-top" alt="{{hotel.name}}" title="{{hotel.name}}"><br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <table id="vertical-1" class="details">
+                                    <br />
+                                    <h2>Details</h2>
+                                    <hr />
+                                    <tr>
+                                        <th>Adresse</th>
+                                        <td>{{hotel.address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Stadt</th>
+                                        <td>{{hotel.city}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Telefon</th>
+                                        <td>{{hotel.telephone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Webseite</th>
+                                        <td>{{hotel.website}}</td>
+                                    </tr>
+                                    <!-- <tr><td><a (click)="showUpdateForm()" class="btn btn-primary">Update Hoteldaten</a></td></tr> -->
+                                </table>
+
+                            </div>
+                            <div class="col">
+                                <table class="features">
+                                    <tr>
+                                        <th>Frühstück <br>inklusive </th>
+                                        <th>Gute Park- <br /> möglichkeiten </th>
+                                        <th>Free Wifi</th>
+                                        <th>Restaurant Inklusive</th>
+                                        <th>Swimming Pool</th>
+                                    </tr>
+                                    <tr>
+                                        <td *ngIf="!hotel.breakfast" class="false"> &#x2718; </td>
+                                        <td *ngIf="hotel.breakfast" class="true"> &#x2714; </td>
+
+                                        <td *ngIf="hotel.parking" class="true"> &#x2714; </td>
+                                        <td *ngIf="!hotel.parking" class="false"> &#x2718; </td>
+
+                                        <td *ngIf="hotel.wifi" class="true"> &#x2714; </td>
+                                        <td *ngIf="!hotel.wifi" class="false"> &#x2718; </td>
+
+                                        <td *ngIf="hotel.restaurant" class="true"> &#x2714; </td>
+                                        <td *ngIf="!hotel.restaurant" class="false"> &#x2718; </td>
+
+                                        <td *ngIf="hotel.swimmingPool" class="true"> &#x2714; </td>
+                                        <td *ngIf="!hotel.swimmingPool" class="false"> &#x2718; </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col" style="margin-top:5%">
+
+                                <h5>Kommentare zu {{hotel.name}}</h5>
+                                <div class="comments" *ngFor="let review of reviews">
+                                    <p>{{review.comment}}</p>
+                                    <span id="author">{{review.author}}</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <table class="table">
+                                    <tbody>
+                                        <tr style="text-align:left">
+                                            <th>Gesamtrating</th>
+                                            <td>
+                                                <ngb-rating [(rate)]="avgRevStats.avgTotalRating" [readonly]="true" max="5" style="color: orange;"></ngb-rating>
+                                            </td>
+                                            <td>{{avgRevStats.avgTotalRating}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Freundlichkeit</th>
+                                            <td>
+                                                <ngb-rating [(rate)]="avgRevStats.avgFriendly" [readonly]="true" max="5" style="color: orange;"></ngb-rating>
+                                            </td>
+                                            <td>{{avgRevStats.avgFriendly}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Ambiente</th>
+                                            <td>
+                                                <ngb-rating [(rate)]="avgRevStats.avgAmbience" [readonly]="true" max="5" style="color: orange;">{{avgRevStats.avgAmbience}}</ngb-rating>
+                                            </td>
+                                            <td>{{avgRevStats.avgAmbience}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Sauberkeit</th>
+                                            <td>
+                                                <ngb-rating [(rate)]="avgRevStats.avgClean" [readonly]="true" max="5" style="color: orange;">{{avgRevStats.avgClean}}</ngb-rating>
+                                            </td>
+                                            <td>{{avgRevStats.avgClean}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Familenfreundlichkeit</th>
+                                            <td>
+                                                <ngb-rating [(rate)]="avgRevStats.avgFamily" [readonly]="true" max="5" style="color: orange;"></ngb-rating>
+                                            </td>
+                                            <td>{{avgRevStats.avgFamily}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-text"> </p>
+                    <p class="card-text">Sie haben dieses Hotel besucht? Teilen Sie uns Ihre Einschätzung mit!</p>
+                    <a (click)="showReviewForm()" class="btn btn-warning">Bewertung abgeben</a>
+                    <a style="float:right" (click)="showAdminForm()" class="btn btn-info">Bewertungen verwalten</a>
+                </div>
+                <app-create-review *ngIf="toggleReviewForm" [hotel]="hotel"></app-create-review>
+                <app-manage-reviews *ngIf="toggleAdminForm" [hotel]="hotel" [reviews]="reviews"></app-manage-reviews>
+            </div>
+        </div>
+    </div>

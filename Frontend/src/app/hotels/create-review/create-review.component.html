@@ -1,0 +1,47 @@
+<div class="container-fluid mb-5">
+    <h2>Deine Meinung ist uns wichtig!</h2>
+    <p>Vielen Dank, dass Du dein Feedback mit uns teilst!</p>
+
+
+    <div class="card">
+        <div class="card-body">
+
+
+
+
+            <form #reviewForm="ngForm">
+                <div class="form-group">
+                    <label>Dein Name </label><br />
+                    <input type="text" class="form-controll" name="author" [(ngModel)]="newReview.author" required>
+                </div>
+                <p class="card-text"> Bitte bewerte wie wohl Du Dich bezüglich der folgenden Attribute gefühlt hast!</p>
+                <label>Sauberkeit </label><br />
+                <ngb-rating max="5" [(rate)]="newReview.cleanness" name="cleanness" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{newReview.cleanness}} / 5 </span><br />
+                <hr>
+                <label>Freundlichkeit </label><br />
+                <ngb-rating max="5" [(rate)]="newReview.friendliness" name="friendliness" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{newReview.friendliness}} / 5 </span><br />
+                <hr>
+                <label>Qualität Verpflegungsangebot </label><br />
+                <ngb-rating max="5" [(rate)]="newReview.foodQuality" name="foodQuality" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{newReview.foodQuality}} / 5 </span><br />
+                <hr>
+                <label>Ambiente und Einrichtung </label><br />
+                <ngb-rating max="5" [(rate)]="newReview.ambience" name="ambience" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{newReview.ambience}} / 5 </span><br />
+                <hr>
+                <label>Familienfreundlichkeit </label><br />
+                <ngb-rating max="5" [(rate)]="newReview.familyFriendly" name="familyFriendly" ngModel style="color: orange;"></ngb-rating><br /><br />
+                <span>Dein Rating: {{newReview.familyFriendly}} / 5 </span><br />
+                <hr>
+                <div class="form-group">
+                    <label>Schreibe einen Kommentar!</label><br />
+                    <textarea cols="50" rows="4" type="text" class="form-controll" name="comment" [(ngModel)]="newReview.comment">
+                    </textarea>
+                </div>
+            </form>
+            <a (click)="generateNewReview()" [routerLink]="[]" class="btn btn-warning">Bewertung abgeben</a>
+        </div>
+    </div>
+</div>

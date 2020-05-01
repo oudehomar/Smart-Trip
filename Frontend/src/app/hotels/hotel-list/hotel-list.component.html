@@ -1,0 +1,80 @@
+<div class="wrapper">
+    <div class="btn-group" style="margin-left:76%; margin-bottom: 1%;">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 4px; padding-left: 15px;    width: 100%;    padding-left: 5px;    color: black;    font-family: 'Comic Sans MS', 'Comic Sans', cursive;    margin-left: 24%;    margin-top: 0px;    background-color: rgb(66, 133, 244) !important;    height: 38px;    font-size: 14px;"
+            title="Sortieren">Sortiere nach..
+          </button>
+        <div class="dropdown-menu" aria-labelledby="dLabel">
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByPriceDesc();" style="width: 100%;">Günstigste</button>
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByRatingDesc()" style="width: 100%;">Bestes Rating</button>
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByFriendlyDesc()" style="width: 100%;">Freundlichkeit</button>
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByCleanDesc()" style="width: 100%;">Sauberkeit</button>
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByAmbienceDesc()" style="width: 100%;">Ambiente</button>
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByFoodDesc()" style="width: 100%;">Qualität Verpflegung</button>
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByFamilyDesc()" style="width: 100%;">Familienfreundlichkeit</button>
+            <button class="btn btn-primary btn-sm" aria-pressed="false" (click)="sortByRatingDesc()" style="width: 100%;">Gesamtbewertung</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-left:12%">
+        <div class="col-sm-4" *ngFor="let hotel of filteredHotelList" style="margin-bottom:1%;margin-left:0%">
+            <div class="card">
+                <img src="./assets/img/hotels.png" class="card-img-top" alt="{{hotel.name}}" title="{{hotel.name}}"><br />
+                <div class="card-body">
+                    <h2 class="card-title">{{hotel.name}}</h2>
+                    <p class="card-text">{{hotel.description}}</p>
+                    <p class="card-text">Stadt: {{hotel.city}}</p>
+                    <p class="card-text">Sterne: {{hotel.stars}} Sterne</p>
+                    <p class="card-text" *ngIf="hotel.avgRatingStats.avgTotalRating<1" title="{{hotel.avgRatingStats.avgTotalRating}}">
+                        Bewertung:
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
+                    <p class="card-text" *ngIf="hotel.avgRatingStats.avgTotalRating>=1 && hotel.avgRatingStats.avgTotalRating<2" title="{{hotel.avgRatingStats.avgTotalRating}}">
+                        Bewertung:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
+                    <p class="card-text " *ngIf="hotel.avgRatingStats.avgTotalRating>=2 && hotel.avgRatingStats.avgTotalRating<3" title="{{hotel.avgRatingStats.avgTotalRating}}">
+                        Bewertung:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
+                    <p class="card-text" *ngIf="hotel.avgRatingStats.avgTotalRating>=3 && hotel.avgRatingStats.avgTotalRating<4" title="{{hotel.avgRatingStats.avgTotalRating}}">
+                        Bewertung:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
+                    <p class="card-text" *ngIf="hotel.avgRatingStats.avgTotalRating>=4 &&hotel.avgRatingStats.avgTotalRating<5" title="{{hotel.avgRatingStats.avgTotalRating}}">
+                        Bewertung:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
+                    <p class="card-text" *ngIf="hotel.avgRatingStats.avgTotalRating==5" title="{{hotel.avgRatingStats.avgTotalRating}}">
+                        Bewertung:
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </p>
+                    <p class="card-text">Günstigstes Zimmer: {{hotel.price}} €</p>
+                    <a class="btn btn-primary" [routerLink]="['/smart-trip/hotels', hotel.id]" style="color: black; font-family: 'Comic Sans MS', 'Comic Sans', cursive; font-size: 110%; margin-left: 13%;margin-right: 12%;" title="Weitere Informationen">Weitere Informationen</a>
+                </div>
+            </div>
+        </div>
+    </div>

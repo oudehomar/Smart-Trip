@@ -1,0 +1,107 @@
+.cardDesign div {
+  display: inline-block;
+ }
+
+.filter {
+    float: left;
+    /* display: flex; */
+    flex-direction: column;
+    width: 250px;
+    height: auto;
+    padding: 20px;
+    margin-top: 0px;
+    background-color: #97E3F1;
+}
+
+
+.dropdownTypesOfEvent {
+    padding: 20px;
+    margin-top: 0;
+
+}
+
+.city {
+  margin-left: 25px;
+}
+
+.city label {
+  display: block;
+}
+
+
+
+
+.sorting {
+  margin-left: 1000px;
+}
+
+hr.hrStyle {
+  height: 30px;
+  border-style: solid;
+  border-color:rgb(57, 105, 209);
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+  width: 117%;
+margin-left: -9%;
+}
+hr.hrStyle:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: rgb(57, 105, 209);
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+
+
+/* .listOfEvents {
+  width: 65%;
+  margin-left: 349px;
+} */
+
+
+.right {
+  background-color: #FFFFFF;
+  float: right;
+  width: 70%;
+}
+
+.right div {
+  display: inline-block;
+  margin: 2px;
+}
+
+
+/* Styles for wrapping the search box */
+
+.main {
+  width: 25%;
+  margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+
+
+
+
+

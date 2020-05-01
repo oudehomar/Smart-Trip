@@ -1,0 +1,137 @@
+.right {
+    background-color: #FFFFFF;
+    float: right;
+    width: 70%;
+    margin-top: 40px;
+}
+
+.card {
+    display: inline-block;
+}
+
+.checked {
+    color: orange;
+}
+
+.card {
+    margin: 6px;
+}
+
+.rightNew {
+    background-color: #FFFFFF;
+}
+
+.right div {
+    display: inline-block;
+}
+
+.checkFalse {
+    color: red !important;
+    font-size: 25px;
+}
+
+.checkTrue {
+    color: green !important;
+    font-size: 25px;
+}
+
+.haupt {
+    width: 600px;
+    height: 250px;
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid brown;
+}
+
+.div1 {
+    width: 100%;
+    display: inline-block;
+}
+
+.pAside {
+    padding: 8px;
+    display: inline;
+}
+
+.div2 {
+    padding: 3px;
+    margin: 3px;
+    display: inline-block;
+}
+
+.newSection {
+    background-color: #FFFFFF;
+    float: left;
+    width: 100%;
+    margin-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.reviewList {
+    background-color: #FFFFFF;
+    float: left;
+    width: 100%;
+    margin-top: 40px;
+    padding-left: 30%;
+}
+
+.divAfterImg {
+    text-align: center;
+    padding: 15px;
+}
+
+.h2ToHover {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+.h2ToHover:hover {
+    background-color: rgb(60, 149, 233);
+    /* background-color: rgba(6, 245, 245, 0.63); */
+}
+
+.commentH {
+    cursor: context-menu;
+    width: 40%;
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.butDelete {
+    float: right;
+    padding: 1%;
+    background-color: rgb(241, 78, 78);
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    border-radius: 15px 0px;
+    margin-left: 2%;
+}
+
+.butUpdate {
+    float: right;
+    padding: 1%;
+    background-color: rgb(66, 133, 244);
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    border-radius: 15px 0px;
+}
+
+.butRev {
+    float: right;
+    padding: 3%;
+    background-color: rgb(66, 133, 244);
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    border-radius: 15px 0px;
+    margin-bottom: 1%;
+    font-size: 137%;
+}
+
+.buttonBack {
+    float: right;
+    padding: 3%;
+    background-color: rgb(66, 133, 244);
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    border-radius: 15px 0px;
+    margin-bottom: 1%;
+    font-size: 137%;
+    margin-top: 4%;
+}

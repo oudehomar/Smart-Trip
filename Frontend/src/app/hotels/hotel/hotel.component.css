@@ -1,0 +1,18 @@
+.true {
+    background-color: lightgreen;
+    font-size: x-large;
+}
+
+.false {
+    background-color: rgb(238, 193, 125);
+    font-size: x-large;
+}
+
+.Dreistern {
+    background-color: lightseagreen;
+}
+
+.wrapper {
+    margin: 5% 5% 15%;
+    background-color: whitesmoke;
+}

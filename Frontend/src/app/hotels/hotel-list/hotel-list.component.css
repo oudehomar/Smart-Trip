@@ -1,0 +1,43 @@
+.left {
+    background-color: #d7eafc;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 100vh;
+    padding: 50px;
+}
+
+.right {
+    background-color: #FFFFFF;
+    float: right;
+    width: 70%;
+}
+
+.right div {
+    display: inline-block;
+    margin: 2px;
+}
+
+.wrapper {
+    margin: 5%;
+    padding: 5%;
+    margin-top: 0%;
+}
+
+select {
+    float: right;
+    margin-left: 7%;
+    font-size: larger;
+    color: rgb(19, 18, 18);
+    min-width: 300px;
+    background-color: whitesmoke;
+}
+
+select:hover {
+    box-shadow: 3px 3px black;
+}
+
+.checked {
+    color: orange;
+}

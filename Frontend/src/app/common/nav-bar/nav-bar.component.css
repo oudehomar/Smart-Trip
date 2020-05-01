@@ -1,0 +1,30 @@
+/* Style the navbar */
+
+#navbar {
+    overflow: hidden;
+    background: rgb(189, 215, 240);
+    box-shadow: 3px 3px lightgrey;
+    background-color: #75CAF6;
+}
+
+#navbar a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+#logo {
+    padding-left: 5%;
+    margin-top: 1%;
+    color: black;
+    /* font-weight:bold; */
+    text-decoration: underline;
+    font-family: Trattatello, fantasy;
+    font-size: 120%;
+    cursor: pointer;
+}
